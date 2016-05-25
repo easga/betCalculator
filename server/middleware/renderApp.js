@@ -20,8 +20,7 @@ const renderIndexPage = (reactHTML, initialState) => {
       <head>
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
         ${meta}
-        <title>betCalculator</title>
-        <!-- Latest compiled and minified CSS -->
+        <title>Bet Calculator</title>
         ${maybeCssAsset}
         <link rel="icon" href="/static/favicon.ico">
       </head>
