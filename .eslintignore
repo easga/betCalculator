@@ -1,0 +1,4 @@
+static/
+data/
+common/utils/logger.js
+server/middleware/logger.js

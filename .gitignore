@@ -1,0 +1,41 @@
+# Generated sources
+buildForProd/
+static/*.js
+
+# Generated package
+betCalculator-*.tar.*
+
+# External libs
+node_modules/
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+ehthumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+$RECYCLE.BIN/
+
+# OSX
+.AppleDouble
+.LSOverride
+
+# Icon must ends with two \r.
+Icon
+
+#IDE specific files
+.idea
+
+#Ignore log files
+npm-debug.log
+newrelic_agent.log
+app.log
+
+# ternjs config
+.tern-project

@@ -1,0 +1,3 @@
+// ACTIONS
+export const RECEIVE_BET = 'RECEIVE_BET';
+export const UPDATE_CURRENT_BET = 'UPDATE_CURRENT_BET';

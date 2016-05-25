@@ -1,0 +1,23 @@
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+p {
+  margin-bottom: $spacer;
+}
+
+.m-y-md {
+  @include media-breakpoint-down(xs) {
+    margin-bottom: 4 * $spacer !important;
+    margin-top: 4 * $spacer !important;
+  }
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.img-responsive {
+  width: 100%;
+}
