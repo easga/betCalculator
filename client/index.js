@@ -25,14 +25,14 @@ const getProvider = () =>
   </Provider>;
 
 window.onerror = function sendErrorToServer (errorMsg, url, lineNumber, column, errorObj) {
-  logger.fatalException({ // Send object with all data to server side log, using severity fatal
+  logger.fatalException({
     msg: 'Exception!',
     errorMsg,
     url,
     'line number': lineNumber,
     column
   }, errorObj);
-  return false; // Tell browser to run its own error handler as well
+  return false;
 };
 
 const renderClient = () => {

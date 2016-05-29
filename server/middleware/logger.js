@@ -9,7 +9,7 @@ const logFileName = './app.log';
 const defaultLogLevel = 'debug';
 const logLevel = serverConfig.logLevel || defaultLogLevel;
 if (!serverConfig.logLevel) {
-  console.error(`LOGGER ERROR: the logLevel was not specified in config; using the default level of: ${logLevel}`); // eslint-disable-line no-console
+  console.error(`LOGGER ERROR: config does not specify log level; using the default: ${logLevel}`); // eslint-disable-line no-console
 }
 
 const timestamp = () => new Date().toUTCString();
@@ -34,7 +34,7 @@ const getLogLevelColor = level => {
 };
 
 const getLogMessageColorByLevel = level => {
-  switch (level) { // NOTE: Only overrides are defined in this switch statement, otherwise we fallback to the loglevel color
+  switch (level) { // overrides
   case 'INFO':
     return colors.white;
   default:

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import DocumentMeta from 'react-document-meta';
 import { Provider } from 'react-redux';
 import { match, RouterContext } from 'react-router';
 import { logger } from './logger';
@@ -15,13 +14,11 @@ const renderIndexPage = (reactHTML, initialState) => {
   const { css, js } = assets.main;
   // css is injected into style tag by webpack in dev mode, so it would not be in the assets hash
   const maybeCssAsset = !css ? '' : `<link rel="stylesheet" href="/static/${css}">`;
-  const meta = DocumentMeta.renderAsHTML();
   return `
     <!doctype html>
     <html>
       <head>
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-        ${meta}
         <title>Bet Calculator</title>
         ${maybeCssAsset}
         <link rel="icon" href="/static/favicon.ico">
@@ -52,12 +49,10 @@ const renderApp = (req, res) => {
   const store = configureStore({});
   Object.keys(defaultCommissions).map(key =>
     store.dispatch(receiveCommission({ type: key, value: defaultCommissions[key] })));
-  // Trigger the routing
   match({ routes, location: req.originalUrl }, (error, redirectLocation, renderProps) => {
     if (error) { logger.error('Routing error:', error); }
     if (redirectLocation) { logger.info('Routing redirect:', redirectLocation); }
     if (!renderProps) { logger.error('Undefined router state: 404'); }
-      // Send the rendered page back to the client
     const finalHTML = renderIndexPage(renderReact(store, renderProps), store.getState());
     res.send(finalHTML);
   });

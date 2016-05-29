@@ -6,10 +6,7 @@ import { logger, ajaxLogger } from './middleware/logger';
 import renderApp from './middleware/renderApp';
 import serverConfig from './config';
 
-const { port, version } = serverConfig;
-
-logger.info(`App version: ${version || 'UNKNOWN'}.`);
-
+const { port } = serverConfig;
 
 const app = new Express();
 app.use(compression());

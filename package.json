@@ -1,13 +1,9 @@
 {
-  "name": "",
+  "name": "BetCalc",
+  "author": "Osman Erdem Asga",
   "version": "0.1.0",
-  "description": "Universal JS app for Bet",
-  "license": "MIT",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://osman_erdem_asga@bitbucket.org/osman_erdem_asga/betCalculator.git"
-  },
+  "description": "Universal JS app for Tote Bet Dividends Calculator",
+  "license": "ISC",
   "config": {
     "logLevel": "debug",
     "port": 8080
