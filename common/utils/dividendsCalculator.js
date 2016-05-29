@@ -93,7 +93,7 @@ const calculateDividends = (allBets, commissions, runners) => {
         ...calculator(betName, betsObj.bets, totalStakesAfterCommission, runners, matchCondition)
       ];
       return dividends;
-    }, {});
+    }, []);
 };
 
 export default calculateDividends;
