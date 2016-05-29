@@ -1,15 +1,13 @@
 import { handleActions } from 'redux-actions';
 import { RECEIVE_BET } from '../constants/actionTypes';
-import parseBet from '../utils/parser';
 
-const receiveBet = (state, action) => {
-  const parsedBet = parseBet(action.payload);
-  const { type, stake } = parsedBet;
+const receiveBet = (state, { payload }) => {
+  const { type, stake } = payload;
   const { totalStakes = 0, bets = [] } = state[type] || {};
   return {
     ...state,
     [type]: {
-      bets: [...bets, parsedBet],
+      bets: [...bets, payload],
       totalStakes: totalStakes + stake
     }
   };

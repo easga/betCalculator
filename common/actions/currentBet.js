@@ -1,4 +1,5 @@
 import { createAction as actionCreatorFactory } from 'redux-actions';
-import { UPDATE_CURRENT_BET } from '../constants/actionTypes.js';
+import { RECEIVE_CURRENT_BET, RECEIVE_BET_ERROR } from '../constants/actionTypes.js';
 
-export const updateCurrentBet = actionCreatorFactory(UPDATE_CURRENT_BET);
+export const receiveCurrentBet = actionCreatorFactory(RECEIVE_CURRENT_BET);
+export const receiveBetError = actionCreatorFactory(RECEIVE_BET_ERROR);

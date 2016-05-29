@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import { match, RouterContext } from 'react-router';
 import { logger } from './logger';
 import configureStore from '../../common/store/configureStore';
+import { receiveCommission } from '../../common/actions/commissions';
+import defaultCommissions from '../../common/constants/defaultCommissions';
 import routes from '../../common/router/routes';
 const assets = require('../../assets.json');
 
@@ -48,6 +50,8 @@ const renderReact = (store, renderProps) => ReactDOMServer.renderToString(
 
 const renderApp = (req, res) => {
   const store = configureStore({});
+  Object.keys(defaultCommissions).map(key =>
+    store.dispatch(receiveCommission({ type: key, value: defaultCommissions[key] })));
   // Trigger the routing
   match({ routes, location: req.originalUrl }, (error, redirectLocation, renderProps) => {
     if (error) { logger.error('Routing error:', error); }

@@ -1,37 +1,30 @@
 import React, { PropTypes } from 'react';
-import { updateCurrentBet } from '../actions/currentBet';
+import { receiveCurrentBet } from '../actions/currentBet';
 import { addBetIfValid } from '../actions/bets';
+import SingleInputForm from './SingleInputForm';
+import { addBetText, addBetPlaceHolder, betInstructions } from '../constants/messages';
 
-const handleSubmit = (event, dispatch) => {
+const handleSubmit = (event, dispatch, bet) => {
   event.preventDefault();
-  dispatch(addBetIfValid());
+  dispatch(addBetIfValid(bet));
 };
 
-const AddBet = ({ currentBet: { value }, dispatch }) => {
-  const formClasses = 'form-inline';
-  return (
-    <form className={formClasses} onSubmit={event => handleSubmit(event, dispatch)}>
-      <div className="input-group">
-        <input
-          onChange={event => dispatch(updateCurrentBet(event.target.value))}
-          value={value || ''}
-          type="text"
-          className="form-control"
-          placeholder="Place a bet"
-        />
-        <span className="input-group-btn">
-          <button className="btn btn-primary" type="button" onClick={event => handleSubmit(event, dispatch)} >
-            Add bet
-          </button>
-        </span>
-      </div>
-    </form>
-  );
-};
+const AddBet = ({ currentBet = {}, dispatch }) =>
+  <section className="m-b-2">
+    <div className="text-xs-center">{betInstructions}</div>
+    <SingleInputForm
+      {...currentBet}
+      buttonText={addBetText}
+      placeholder={addBetPlaceHolder}
+      handleSubmit={event => handleSubmit(event, dispatch, currentBet.value)}
+      handleChange={value => dispatch(receiveCurrentBet(value))}
+    />
+    <div className="clearfix"></div>
+  </section>;
 
 
 AddBet.propTypes = {
   currentBet: PropTypes.object,
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func.isRequired
 };
 export default AddBet;

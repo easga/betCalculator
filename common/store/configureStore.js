@@ -1,13 +1,11 @@
 import { compose, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import promiseMiddleware from 'redux-promise';
 import rootReducer from '../reducers';
 import { crashReporter, loggerMiddleware } from '../middleware/logger';
 
 const getComposer = () => {
   const middlewares = [
     thunk,
-    promiseMiddleware,
     loggerMiddleware,
     crashReporter
   ];
