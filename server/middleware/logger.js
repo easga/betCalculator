@@ -21,7 +21,7 @@ const getLogLevelColor = level => {
   case 'DEBUG':
     return colors.blue;
   case 'INFO':
-    return colors.rainbow;
+    return colors.green;
   case 'WARN':
     return colors.yellow;
   case 'ERROR':

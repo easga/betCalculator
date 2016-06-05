@@ -11,8 +11,8 @@ const { port } = serverConfig;
 const app = new Express();
 app.use(compression());
 app.use('/static', Express.static(path.join('.', 'static'), { fallthrough: false }));
-app.use(bodyParserJson()); // This is required for jsnlog_nodejs
-app.post('*.logger', ajaxLogger); // Handle client-side logs
+app.use(bodyParserJson());
+app.post('*.logger', ajaxLogger);
 app.use(renderApp);
 
 app.listen(port, (error) => {

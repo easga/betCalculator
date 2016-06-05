@@ -1,9 +1,7 @@
 # Generated sources
 buildForProd/
 static/*.js
-
-# Generated package
-betCalculator-*.tar.*
+assets.json
 
 # External libs
 node_modules/
@@ -34,7 +32,6 @@ Icon
 
 #Ignore log files
 npm-debug.log
-newrelic_agent.log
 app.log
 
 # ternjs config

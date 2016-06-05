@@ -4,27 +4,22 @@
   "version": "0.1.0",
   "description": "Universal JS app for Tote Bet Dividends Calculator",
   "license": "ISC",
+  "repository" :
+  { "type" : "git",
+    "url" : "https://github.com/easga/betCalculator.git"
+  },
   "config": {
     "logLevel": "debug",
     "port": 8080
   },
   "scripts": {
-    "start": "STATIC_DIRECTORY=static NODE_ENV=production PORT=8086 LOG_LEVEL=error forever --minUptime=1000 --spinSleepTime=1000 ./server.js",
     "dev": "webpack --config webpack.dev.config.js && npm run devServers",
     "devServers": "node server & node webpack.dev.server.js",
     "pretest": "npm run lint",
     "test": "mocha --compilers js:babel-core/register --recursive",
     "lint": "npm run eslint",
     "csslint": "scss-lint",
-    "eslint": "eslint . --ext .js",
-    "prepackage": "npm run test",
-    "package": "npm run buildProdClient && npm run buildProdServer && npm run tar",
-    "buildProdClient": "STATIC_DIRECTORY=static NODE_ENV=production webpack -p --config webpack.prod.client.config.js",
-    "buildProdServer": "STATIC_DIRECTORY=static NODE_ENV=production webpack --config webpack.prod.server.config.js",
-    "postbuildProdServer": "cd betCalculator && npm install --production",
-    "tar": "tar -cjf betCalculator-`echo ${npm_package_version}`.tar.bz2 betCalculator",
-    "posttar": "rm -rf betCalculator",
-    "prod": "npm run start"
+    "eslint": "eslint . --ext .js"
   },
   "dependencies": {
     "body-parser": "^1.14.1",
@@ -32,7 +27,6 @@
     "compression": "^1.6.1",
     "enzyme": "^2.3.0",
     "express": "^4.13.3",
-    "forever": "^0.15.1",
     "jsnlog": "^2.16.0",
     "jsnlog-nodejs": "^2.16.0",
     "react": "^15.0.1",
@@ -59,7 +53,6 @@
     "babel-preset-stage-2": "^6.2.4",
     "babel-runtime": "^6.2.4",
     "chai": "^3.5.0",
-    "copy-webpack-plugin": "^3.0.0",
     "css-loader": "^0.23.0",
     "eslint": "^2.8.0",
     "eslint-config-airbnb": "^9.0.1",
